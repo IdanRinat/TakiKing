@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+		<script type="text/javascript" src="app.js"></script>
+		<link rel="stylesheet" href="app.css" type="text/css" />
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taki Probability Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .chart-header {
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        #probability-results div {
+            display: flex;
+            justify-content: space-between;
+        }
+        #probability-results span {
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Taki Probability Calculator</h1>
+        <div class="deck-info">
+            <h2>Deck Composition</h2>
+            <p>Total Cards: <span id="total-cards">116</span></p>
+            <p>Remaining Cards: <span id="remaining-cards">116</span></p>
+        </div>
+
+        <div class="card-buttons">
+            <h2>Play a Card</h2>
+            <!-- Number Cards -->
+            <div class="card-category">
+                <h3>Number Cards</h3>
+                <div id="number-cards" class="card-set">
+                    <button onclick="selectColor('Red')">Red</button>
+                    <button onclick="selectColor('Blue')">Blue</button>
+                    <button onclick="selectColor('Green')">Green</button>
+                    <button onclick="selectColor('Yellow')">Yellow</button>
+                </div>
+            </div>
+
+            <!-- Number Input after selecting color -->
+            <div id="number-buttons" class="card-set" style="display: none;">
+                <h4>Select Number</h4>
+                <button onclick="playNumberCard(1)">1</button>
+                <button onclick="playNumberCard(2)">2</button>
+                <button onclick="playNumberCard(3)">3</button>
+                <button onclick="playNumberCard(4)">4</button>
+                <button onclick="playNumberCard(5)">5</button>
+                <button onclick="playNumberCard(6)">6</button>
+                <button onclick="playNumberCard(7)">7</button>
+                <button onclick="playNumberCard(8)">8</button>
+                <button onclick="playNumberCard(9)">9</button>
+            </div>
+
+            <!-- Action Cards -->
+            <div class="card-category">
+                <h3>Action Cards</h3>
+                <div id="action-cards" class="card-set">
+                    <button onclick="showActionButtons()">Select Color</button>
+                </div>
+            </div>
+
+            <!-- Action Input after selecting color -->
+            <div id="action-buttons" class="card-set" style="display: none;">
+                <h4>Select Action Card</h4>
+                <button onclick="playActionCard('Stop')">Stop</button>
+                <button onclick="playActionCard('+2')">+2</button>
+                <button onclick="playActionCard('Change Direction')">Change Direction</button>
+                <button onclick="playActionCard('Taki')">Taki</button>
+            </div>
+        </div>
+
+        <div class="probabilities">
+            <h2>Current Probabilities</h2>
+            <div id="probability-results">
+                <!-- Updated probabilities will be shown here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
